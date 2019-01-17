@@ -37,3 +37,15 @@ output "vpc_id" {
 output "default_security_group" {
   value = "${aws_vpc.project.default_security_group_id}"
 }
+output "bastion_pub_ip" {
+  value = "${aws_instance.bastion_in_public.public_ip}"
+}
+output "bastion_pub_aws_dns" {
+  value = "${aws_instance.bastion_in_public.public_dns}"
+}
+output "test_priv_public_ip" {
+  value = "${aws_instance.test_private.public_ip}"
+}
+output "test_priv_private_ip" {
+  value = "${aws_instance.test_private.private_ip}"
+}

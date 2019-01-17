@@ -13,6 +13,24 @@ resource "aws_security_group" "access_via_nat" {
   }
 }
 
+resource "aws_security_group" "ssh_access" {
+  name        = "kb-allow_all"
+  description = "Allow all inbound traffic"
+  vpc_id = "${aws_vpc.project.id}"
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_security_group_rule" "allow_inbound_traffic_1" {
   count = "${local.nat_instance ? 1 : 0}"
   type = "ingress"

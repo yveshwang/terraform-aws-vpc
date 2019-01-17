@@ -1,9 +1,9 @@
 variable "project" {}
 variable "multi_az" {
-  default = false
+  default = true
 }
 variable "rds" {
-  default = false
+  default = true
 }
 variable "nat_mode" {
   // TODO allow to disable creation of any type nat

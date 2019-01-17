@@ -1,12 +1,12 @@
 ## About
-Terraform module to bootstrap AWS VPC. 
+Terraform module to bootstrap AWS VPC. Forked from https://github.com/jetbrains-infra/terraform-aws-vpc-with-private-subnets-and-nat
 
 Features:
 * Private and public subnets
 * Internet gateway
 * NAT gateway (default: `true`)
 * NAT instance (default: `false`. Read [more](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-comparison.html).)
-* MultiAZ mode for high availability (default: `false`) 
+* MultiAZ mode for high availability (default: `false`)
 * RDS subnets (default: `false`)
 
 Networks:
@@ -19,7 +19,7 @@ Networks:
 
 ## Usage
 
-Minimal setup: VPC, NAT gw, w/o rds subnets, w/o multiAZ support 
+Minimal setup: VPC, NAT gw, w/o rds subnets, w/o multiAZ support
 ```
 module "project_vpc" {
   source            = "github.com/jetbrains-infra/terraform-aws-vpc-with-private-subnets-and-nat"
@@ -41,7 +41,7 @@ module "project_vpc" {
 
 ## Outputs
 
-* `vpc_id` 
+* `vpc_id`
 * `subnet_public_1`
 * `subnet_public_2` (empty if MultiAZ mode disabled)
 * `subnet_private_1`
@@ -49,8 +49,8 @@ module "project_vpc" {
 * `subnet_rds_1` (empty if RDS support disabled)
 * `subnet_rds_2` (empty if RDS support disabled)
 * `db_subnet_group` (empty if RDS support disabled)
-* `nat_gw_ip_1` 
+* `nat_gw_ip_1`
 * `nat_gw_ip_2` (empty if MultiAZ mode disabled)
-* `nat_instance_ip_1` 
+* `nat_instance_ip_1`
 * `nat_instance_ip_2` (empty if MultiAZ mode disabled)
-* `default_security_group` 
+* `default_security_group`
