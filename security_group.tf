@@ -14,8 +14,8 @@ resource "aws_security_group" "access_via_nat" {
 }
 
 resource "aws_security_group" "ssh_access" {
-  name        = "kb-allow_all"
-  description = "Allow all inbound traffic"
+  name        = "Inbound SSH access"
+  description = "Inbound SSH access"
   vpc_id = "${aws_vpc.project.id}"
   ingress {
     from_port   = 22
